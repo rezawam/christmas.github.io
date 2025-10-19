@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Snow Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="label">sosi...</div>
+
+  <div id="controls" aria-hidden="false">
+    <div class="control">
+      <label for="slider-flakes">Number of flakes: <span id="val-flakes">600</span></label>
+      <input id="slider-flakes" type="range" min="100" max="2000" step="10" value="600">
+    </div>
+    <div class="control">
+      <label for="slider-vert">Vertical speed: <span id="val-vert">1.0</span>x</label>
+      <input id="slider-vert" type="range" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+    <div class="control">
+      <label for="slider-wind">Wind speed: <span id="val-wind">1.0</span>x</label>
+      <input id="slider-wind" type="range" min="0" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control">
+      <label for="toggle-daynight">Day / Night</label>
+      <label class="switch">
+        <input id="toggle-daynight" type="checkbox" aria-label="День/Ночь">
+        <span class="switch-slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <canvas id="snow"></canvas>
+  <script src="snow.js"></script>
+</body>
+</html>

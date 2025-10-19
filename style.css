@@ -1,0 +1,149 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  background: linear-gradient(to top, #1e162b, #000015);
+  transition: background 900ms linear;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+#label {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  font-size: 30px;
+  color: #fff;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* controls */
+#controls {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(10,10,20,0.65);
+  color: #eaf0ff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 13px;
+  min-width: 220px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+#controls .control {
+  margin-bottom: 8px;
+}
+#controls label {
+  display: block;
+  margin-bottom: 6px;
+  color: #dfe7ff;
+}
+
+#controls input[type="range"] {
+  --range-before: #7ea0ff; 
+  --range-after:  #2f3a6a; 
+  --percent: 50%;         
+
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 6px;
+  outline: none;
+  background: linear-gradient(
+    to right,
+    var(--range-before) 0 var(--percent),
+    var(--range-after) var(--percent) 100%
+  );
+  transition: background 120ms linear;
+}
+
+#controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -4px; 
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+#controls input[type="range"]::-moz-range-track {
+  background: var(--range-after);
+  height: 6px;
+  border-radius: 6px;
+}
+#controls input[type="range"]::-moz-range-progress {
+  background: var(--range-before);
+  height: 6px;
+  border-radius: 6px;
+}
+#controls input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  border: none;
+}
+
+#controls input[type="range"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(120,140,255,0.12);
+}
+
+.switch {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  height: 26px;
+  position: relative;
+  user-select: none;
+}
+.switch input {
+  display: none;
+}
+.switch-slider {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #3b3f58, #222431);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  transition: background 200ms ease, box-shadow 200ms ease;
+}
+.switch-slider::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1);
+}
+
+.switch input:checked + .switch-slider {
+  background: linear-gradient(180deg, #9fb3c8, #cfd8e3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.switch input:checked + .switch-slider::after {
+  transform: translateX(22px);
+}
